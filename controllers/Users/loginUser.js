@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const Login = async (req, res = response) => {
   const JWT_SECRET = process.env.JWT_SECRET;
   const { email, password } = req.body;
-  console.log(email, password);
+
   if (!email || !password) {
     return res
       .status(400)
@@ -29,7 +29,7 @@ const Login = async (req, res = response) => {
     });
     res.status(200).json({ message: "Login exitoso.", token, user });
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(500).json({ message: "Error al iniciar sesión." });
   }
 };

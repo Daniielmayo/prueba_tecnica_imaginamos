@@ -28,7 +28,7 @@ const AllRooms = async (req, res = response) => {
       acc[roomId][reservationDate].push(reservation);
       return acc;
     }, {});
-    console.log(rooms)
+  
     const roomsWithReservations = rooms.map((room) => ({
       roomId: room._id,
       name: room.name,
